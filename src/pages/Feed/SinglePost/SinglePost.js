@@ -26,7 +26,8 @@ class SinglePost extends Component {
       .then(resData => {
         console.log('http://localhost:8080' + resData.post.imageUrl);
         this.setState({
-          title: resData.post.title,
+          //title: resData.post.title,
+          title : resData.post.imageUrl,
           author: resData.post.creator.name,
           image : 'http://localhost:8080/' + resData.post.imageUrl,
           date: new Date(resData.post.createdAt).toLocaleDateString('en-US'),
@@ -42,7 +43,7 @@ class SinglePost extends Component {
   render() {
     return (
       <section className="single-post">
-        <h1>{this.state.title}</h1>
+        <h1>{this.state.title} </h1>
         <h2>
           Created by {this.state.author} on {this.state.date}
         </h2>
